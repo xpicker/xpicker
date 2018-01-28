@@ -5,14 +5,14 @@
     "default_locale": "zh_CN",
 
     "icons": {
-        "16": "icon/icon_16.png",
-        "48": "icon/icon_48.png",
-        "128": "icon/icon_128.png"
+        "16": "icons/icon_16.png",
+        "48": "icons/icon_48.png",
+        "128": "icons/icon_128.png"
     },
 
     "browser_action": {
         "default_title": "__MSG_extName__",
-        "default_popup": "view/popup.html"
+        "default_popup": "views/popup.html"
     },
 
     "author": "https://github.com/xpicker",
