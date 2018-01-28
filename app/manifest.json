@@ -1,7 +1,8 @@
 {
-    "name": "XPicker",
+    "name": "__MSG_extName__",
     "version": "0.1.0",
-    "description": "一款信息获取与发布的浏览器插件",
+    "description": "__MSG_extDesc__",
+    "default_locale": "zh_CN",
 
     "icons": {
         "16": "icon/icon_16.png",
@@ -10,8 +11,8 @@
     },
 
     "browser_action": {
-        "default_title": "XPicker",
-        "default_popup": "html/popup.html"
+        "default_title": "__MSG_extName__",
+        "default_popup": "view/popup.html"
     },
 
     "author": "https://github.com/xpicker",
