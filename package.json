@@ -1,0 +1,37 @@
+{
+  "name": "xpicker",
+  "version": "1.0.0",
+  "description": "A tool, capture and release text",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xpicker/xpicker.git"
+  },
+  "author": "jinhu cheung",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xpicker/xpicker/issues"
+  },
+  "homepage": "https://github.com/xpicker/xpicker#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "clean-webpack-plugin": "^0.1.18",
+    "copy-webpack-plugin": "^4.4.1",
+    "css-loader": "^0.28.9",
+    "html-webpack-plugin": "^2.30.1",
+    "postcss-cssnext": "^3.1.0",
+    "postcss-import": "^11.1.0",
+    "postcss-loader": "^2.1.0",
+    "style-loader": "^0.20.2",
+    "vue": "^2.5.13",
+    "vue-loader": "^14.1.1",
+    "vue-template-compiler": "^2.5.13",
+    "webpack": "^3.11.0"
+  }
+}
