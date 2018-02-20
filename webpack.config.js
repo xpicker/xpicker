@@ -6,11 +6,13 @@ const path = require('path')
 
 module.exports = {
     entry: {
-        popup: './app/popup/main.js'
+        popup: './app/popup/main.js',
+        background: './app/background/main.js',
+        login: './app/content/login/main.js'
     },
     output: {
         path: path.resolve(__dirname, './public'),
-        filename: '[name]-bundle.js'
+        filename: '[name].js'
     },
     module: {
         loaders: [

@@ -13,9 +13,18 @@
     },
 
     "browser_action": {
-        "default_title": "__MSG_extName__",
-        "default_popup": "popup.html"
+        "default_title": "__MSG_extName__"
     },
+
+    "background": {
+        "scripts": ["background.js"]
+    },
+
+    "permissions": [
+        "tabs",
+        "http://*/",
+        "https://*/"
+    ],
 
     "author": "https://github.com/xpicker",
     "homepage_url": "https://github.com/xpicker/xpicker"
