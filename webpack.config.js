@@ -5,11 +5,11 @@ const path = require('path')
 
 module.exports = {
     entry: {
-        popup: path.join(__dirname, 'app/popup.js')
+        popup: './app/popup/main.js'
     },
     output: {
-        path: path.resolve(__dirname, 'public'),
-        filename: '[name]-bundle-[hash].js'
+        path: path.resolve(__dirname, './public'),
+        filename: '[name]-bundle.js'
     },
     module: {
         loaders: [
@@ -47,17 +47,17 @@ module.exports = {
         new HtmlWebpackPlugin({
             chunks: ['popup'], 
             filename: 'popup.html',
-            template: path.resolve(__dirname, 'app/popup.html')
+            template: path.resolve(__dirname, 'app/popup/popup.html')
         }),
         new CopyWebpackPlugin([
             {
-                from: path.join(__dirname, 'app/manifest.json')
+                from: path.resolve(__dirname, 'app/manifest.json')
             }, {
-                from: path.join(__dirname, 'app/icons'),
-                to: path.resolve(__dirname, 'public/icons')
+                from: path.resolve(__dirname, 'app/assets/images'),
+                to: 'images'
             }, {
-                from: path.join(__dirname, 'app/_locales'),
-                to: path.resolve(__dirname, 'public/_locales')
+                from: path.resolve(__dirname, 'app/_locales'),
+                to: '_locales'
             }
         ]),
         new CleanWebpackPlugin('public')
