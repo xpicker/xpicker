@@ -1,5 +1,11 @@
-chrome.browserAction.onClicked.addListener(showLoginModal)
+import loginModal from '../content/login/modal.js'
 
-function showLoginModal() {
-    chrome.tabs.executeScript({file: 'login.js'})   
-}
+chrome.browserAction.onClicked.addListener(function() {
+    loginModal.show()  
+})
+
+chrome.windows.onRemoved.addListener(function(windowId) {
+    if (loginModal.id == windowId) {
+        loginModal.clear()
+    }
+})
