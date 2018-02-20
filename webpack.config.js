@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const path = require('path')
 
 module.exports = {
@@ -18,32 +19,35 @@ module.exports = {
                 exclude: /node_modules/,
                 loader: 'babel-loader'
             }, {
+                test: /\.css$/,
+                loader: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: [
+                        {
+                            loader: 'css-loader'
+                        }, {
+                            loader: 'postcss-loader',
+                            options: {
+                                config: './postcss.config.js'
+                            }
+                        }
+                    ] 
+                })
+            }, {
                 test: /\.vue$/,
                 loader: 'vue-loader',
                 options: {
+                    extractCSS: true,
                     cssModules: {
                         localIdentName: '[name]-[local]-[hash:base64:5]',
                         cameCase: true
                     }
                 }
-            }, {
-                test: /\.css$/,
-                use: [
-                    {
-                        loader: 'style-loader'
-                    }, {
-                        loader: 'css-loader'
-                    }, {
-                        loader: 'postcss-loader',
-                        options: {
-                            config: './postcss.config.js'
-                        }
-                    }
-                ]
             }
         ]
     },
     plugins: [
+        new CleanWebpackPlugin('public'),
         new HtmlWebpackPlugin({
             chunks: ['popup'], 
             filename: 'popup.html',
@@ -60,6 +64,8 @@ module.exports = {
                 to: '_locales'
             }
         ]),
-        new CleanWebpackPlugin('public')
+        new ExtractTextPlugin({
+            filename: '[name].css'
+        })
     ]
 }
