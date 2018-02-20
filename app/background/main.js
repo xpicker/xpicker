@@ -1,11 +1,11 @@
-import loginModal from '../content/login/modal.js'
+import accountModal from '../account/modal.js'
 
 chrome.browserAction.onClicked.addListener(function() {
-    loginModal.show()  
+    accountModal.show()  
 })
 
 chrome.windows.onRemoved.addListener(function(windowId) {
-    if (loginModal.id == windowId) {
-        loginModal.clear()
+    if (accountModal.id == windowId) {
+        accountModal.clear()
     }
 })

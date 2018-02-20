@@ -8,7 +8,7 @@ module.exports = {
     entry: {
         popup: './app/popup/main.js',
         background: './app/background/main.js',
-        login: './app/content/login/main.js'
+        account: './app/account/main.js'
     },
     output: {
         path: path.resolve(__dirname, './public'),
@@ -56,9 +56,9 @@ module.exports = {
             template: path.resolve(__dirname, 'app/popup/popup.html')
         }),
         new HtmlWebpackPlugin({
-            chunks: ['login'],
-            filename: 'login.html',
-            template: path.resolve(__dirname, 'app/content/login/login.html')
+            chunks: ['account'],
+            filename: 'account.html',
+            template: path.resolve(__dirname, 'app/account/account.html')
         }),
         new CopyWebpackPlugin([
             {

@@ -2,7 +2,7 @@
 export default {
     id: null,
 
-    url: chrome.extension.getURL('login.html'),
+    url: chrome.extension.getURL('account.html'),
 
     visible: false,
 
