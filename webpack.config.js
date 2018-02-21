@@ -6,13 +6,13 @@ const path = require('path')
 
 module.exports = {
     entry: {
-        popup: './app/popup/main.js',
-        background: './app/background/main.js',
-        account: './app/account/main.js'
+        popup: './app/scripts/popup.js',
+        background: './app/scripts/background.js',
+        account: './app/scripts/account.js'
     },
     output: {
         path: path.resolve(__dirname, './public'),
-        filename: '[name].js'
+        filename: 'scripts/[name].js'
     },
     module: {
         loaders: [
@@ -52,27 +52,31 @@ module.exports = {
         new CleanWebpackPlugin('public'),
         new HtmlWebpackPlugin({
             chunks: ['popup'], 
-            filename: 'popup.html',
-            template: path.resolve(__dirname, 'app/popup/popup.html')
+            filename: 'views/popup.html',
+            template: path.resolve(__dirname, 'app/views/popup.html')
         }),
         new HtmlWebpackPlugin({
             chunks: ['account'],
-            filename: 'account.html',
-            template: path.resolve(__dirname, 'app/account/account.html')
+            filename: 'views/account.html',
+            template: path.resolve(__dirname, 'app/views/account.html')
         }),
         new CopyWebpackPlugin([
             {
                 from: path.resolve(__dirname, 'app/manifest.json')
             }, {
-                from: path.resolve(__dirname, 'app/assets/images'),
+                from: path.resolve(__dirname, 'app/images'),
                 to: 'images'
+            }, {
+                from: path.resolve(__dirname, 'app/styles'),
+                to: 'styles',
+                ignore: ['variables*']
             }, {
                 from: path.resolve(__dirname, 'app/_locales'),
                 to: '_locales'
             }
         ]),
         new ExtractTextPlugin({
-            filename: '[name].css'
+            filename: 'styles/[name].css'
         })
     ]
 }
