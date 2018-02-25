@@ -4,5 +4,11 @@
     },
     "extDesc": {
         "message": "A tool, capture and release text"
+    },
+    "signIn": {
+        "message": "Sign in"
+    },
+    "signUp": {
+        "message": "Sign up"
     }
 }

@@ -4,5 +4,11 @@
     },
     "extDesc": {
         "message": "获取与发布文本工具"
+    },
+    "signIn": {
+        "message": "登录"
+    },
+    "signUp": {
+        "message": "注册"
     }
 }

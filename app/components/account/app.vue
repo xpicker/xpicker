@@ -5,8 +5,8 @@
                <img src="/images/logo_48.png" alt="XPicker">
            </div>
            <div class="menu">
-               <div class="item"></div>
-               <div class="item"></div>
+               <a class="item">{{ i18n.t("signIn") }}</a>
+               <a class="item">{{ i18n.t("signUp") }}</a>
            </div>
        </div>
     </div>
@@ -26,7 +26,18 @@
         align-items: center;
     }
 
-    .content {
+    .content > .header {
+        text-align: center;
+    }
 
+    .content > .menu {
+        display: flex;
+        padding-top: 1em;
+        padding-bottom: 1em;
+
+        & .item {
+            margin: 0 .5em;
+            font-size: 1.2em;
+        }
     }
 </style>
