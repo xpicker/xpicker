@@ -1,4 +1,4 @@
-import accountModal from '../components/account/modal.js'
+import accountModal from 'components/account/modal'
 
 chrome.browserAction.onClicked.addListener(function() {
     accountModal.show()  

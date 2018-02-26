@@ -80,5 +80,13 @@ module.exports = {
         new ExtractTextPlugin({
             filename: 'styles/[name].css'
         })
-    ]
+    ],
+    resolve: {
+        extensions: ['*', '.js', '.vue'],
+        alias: {
+            styles: path.resolve(__dirname, 'app/styles'),
+            lib: path.resolve(__dirname, 'app/lib'),
+            components: path.resolve(__dirname, 'app/components')
+        }
+    }
 }
