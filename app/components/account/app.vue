@@ -5,20 +5,45 @@
                <img src="/images/logo_48.png" alt="XPicker">
            </div>
            <div class="menu">
-               <a class="item">{{ i18n.t("signIn") }}</a>
-               <a class="item">{{ i18n.t("signUp") }}</a>
+               <a class="item" :class="{active: isSigninTab}" @click="setTab('sign_in')">{{ i18n.t("signIn") }}</a>
+               <a class="item" :class="{active: !isSigninTab}" @click="setTab('sign_up')">{{ i18n.t("signUp") }}</a>
            </div>
+           <signin-form v-if='isSigninTab'></signin-form>
+           <signup-form v-else></signup-form>
        </div>
     </div>
 </template>
 
 <script>
+    import SigninForm from './signinForm'
+    import SignupForm from './signupForm'
+
     export default {
-        name: 'login'
+        name: 'account',
+        data() {
+            return {
+                tab: 'sign_in'
+            }
+        },
+        components: {
+            SigninForm, SignupForm
+        },
+        computed: {
+            isSigninTab() {
+                return this.tab == 'sign_in'
+            }
+        },
+        methods: {
+            setTab(value) {
+                this.tab = value
+            }
+        }
     }
 </script>
 
 <style scoped>
+    @import "../../styles/variables.css";
+
     .container {
         height: 100%;
         display: flex;
@@ -36,8 +61,19 @@
         padding-bottom: 1em;
 
         & .item {
+            position: relative;
             margin: 0 .5em;
+            padding-bottom: .6em;
             font-size: 1.2em;
+        }
+
+        & .item.active:after {
+            content: ' ';
+            position: absolute;
+            left: 10%;
+            bottom: 0;
+            width: 80%;
+            border-bottom: 1px solid var(--main-color);
         }
     }
 </style>

@@ -82,7 +82,7 @@ module.exports = {
         })
     ],
     resolve: {
-        extensions: ['*', '.js', '.vue'],
+        extensions: ['.js', '.vue'],
         alias: {
             styles: path.resolve(__dirname, 'app/styles'),
             lib: path.resolve(__dirname, 'app/lib'),

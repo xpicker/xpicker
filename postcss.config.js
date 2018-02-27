@@ -1,6 +1,9 @@
+const AtImport = require('postcss-import')
+const CssNext  = require('postcss-cssnext')
+
 module.exports = {
     plugins: [
-        require('postcss-import'),
-        require('postcss-cssnext')
+        AtImport,
+        CssNext
     ]
 }
