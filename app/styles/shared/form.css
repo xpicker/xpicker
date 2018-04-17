@@ -1,0 +1,57 @@
+@import "../variables.css";
+
+.form {
+  margin-top: .5em;
+  width: 65%;
+}
+
+.form-input {
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  & input {
+    width: 100%;
+    height: 100%;
+    padding: .6em;
+    outline: none;
+    border: 1px solid var(--border-color);
+
+    &:focus {
+      border: 1px solid var(--main-color);
+    }
+  }
+
+  & input[type="submit"] {
+    color: #fff;
+    border: 1px solid transparent;
+    background: var(--main-color);
+
+    &:hover {
+      background: var(--light-main-color);
+    }
+  }
+}
+
+.form-input.icon {
+  position: relative;
+
+  & .iconfont {
+    position: absolute;
+    left: .7em;
+    top: .6em;
+    color: var(--text-muted-color);
+  }
+
+  & input {
+    padding-left: 2.5em;
+  }
+
+  & input:focus + .iconfont {
+    color: var(--main-color);
+  }
+}

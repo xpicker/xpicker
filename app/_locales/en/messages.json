@@ -10,5 +10,11 @@
     },
     "signUp": {
         "message": "Sign up"
+    },
+    "login": {
+        "message": "Email / Username"
+    },
+    "password": {
+        "message": "Password"
     }
 }

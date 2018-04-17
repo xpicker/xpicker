@@ -1,5 +1,7 @@
 :root {
     --main-color: #1296db;
+    --light-main-color: color(#1296db alpha(-10%));
+    --border-color: #e0e0e0;
     --text-color: #4a5566;
     --link-color: #7d8695;
     --link-hover-color: #27364e;

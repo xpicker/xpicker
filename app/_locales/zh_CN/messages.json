@@ -10,5 +10,11 @@
     },
     "signUp": {
         "message": "注册"
+    },
+    "login": {
+        "message": "邮箱 / 用户名"
+    },
+    "password": {
+        "message": "密码"
     }
 }

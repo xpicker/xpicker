@@ -47,6 +47,9 @@ module.exports = {
                         cameCase: true
                     }
                 }
+            }, {
+                test: /\.(woff|svg|eot|ttf)\??.*$/,
+                loader: 'url-loader?name=fonts/[name].[hash:base64:5].[ext]'
             }
         ]
     },

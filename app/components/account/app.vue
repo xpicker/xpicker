@@ -8,7 +8,7 @@
                <a class="item" :class="{active: isSigninTab}" @click="setTab('sign_in')">{{ i18n.t("signIn") }}</a>
                <a class="item" :class="{active: !isSigninTab}" @click="setTab('sign_up')">{{ i18n.t("signUp") }}</a>
            </div>
-           <signin-form v-if='isSigninTab'></signin-form>
+           <signin-form v-if="isSigninTab"></signin-form>
            <signup-form v-else></signup-form>
        </div>
     </div>
@@ -51,14 +51,20 @@
         align-items: center;
     }
 
+    .content {
+        height: 80%;
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
     .content > .header {
         text-align: center;
     }
 
     .content > .menu {
-        display: flex;
-        padding-top: 1em;
-        padding-bottom: 1em;
+        padding: 1.6em 0;
 
         & .item {
             position: relative;
