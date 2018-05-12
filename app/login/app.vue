@@ -1,22 +1,30 @@
 <template>
     <div class="container">
-       <div class="content">
-           <div class="header">
-               <img src="/images/logo_48.png" alt="XPicker">
-           </div>
-           <div class="menu">
-               <a class="item" :class="{active: isSigninTab}" @click="setTab('sign_in')">{{ i18n.t("signIn") }}</a>
-               <a class="item" :class="{active: !isSigninTab}" @click="setTab('sign_up')">{{ i18n.t("signUp") }}</a>
-           </div>
-           <signin-form v-if="isSigninTab"></signin-form>
-           <signup-form v-else></signup-form>
-       </div>
+        <div class="box">
+            <div class="header">
+                <img src="/images/logo_48.png" alt="XPicker">
+            </div>
+
+            <div class="content">
+                <div class="menu">
+                    <a class="item" :class="{active: isSigninTab}" @click="setTab('sign_in')">{{ i18n.t("signIn") }}</a>
+                    <a class="item" :class="{active: !isSigninTab}" @click="setTab('sign_up')">{{ i18n.t("signUp") }}</a>
+                </div>
+                <signin-form v-if="isSigninTab"></signin-form>
+                <signup-form v-else></signup-form>
+            </div>
+
+            <div class="footer">
+                <oauth></oauth>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
-    import SigninForm from './components/signinForm'
-    import SignupForm from './components/signupForm'
+    import signinForm from './components/signinForm'
+    import signupForm from './components/signupForm'
+    import oauth from './components/oauth'
 
     export default {
         name: 'account',
@@ -26,7 +34,7 @@
             }
         },
         components: {
-            SigninForm, SignupForm
+            signinForm, signupForm, oauth
         },
         computed: {
             isSigninTab() {
@@ -41,7 +49,7 @@
     }
 </script>
 
-<style scoped>
+<style lang="postcss" scoped>
     @import "~styles/variables";
 
     .container {
@@ -51,7 +59,7 @@
         align-items: center;
     }
 
-    .content {
+    .box {
         height: 80%;
         width: 90%;
         display: flex;
@@ -59,12 +67,18 @@
         align-items: center;
     }
 
-    .content > .header {
+    .box > .header {
         text-align: center;
     }
 
-    .content > .menu {
+    .box > .content {
         padding: 1.6em 0;
+        text-align: center;
+    }
+
+    .box > .content .menu {
+        padding-bottom: 1.6em;
+        margin-bottom: .4em;
 
         & .item {
             position: relative;

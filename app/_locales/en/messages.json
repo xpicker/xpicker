@@ -14,7 +14,16 @@
     "login": {
         "message": "Email / Username"
     },
+    "username": {
+        "message": "Username"
+    },
+    "email": {
+        "message": "Email"
+    },
     "password": {
         "message": "Password"
+    },
+    "oauthSignIn": {
+        "message": "Login with other account"
     }
 }

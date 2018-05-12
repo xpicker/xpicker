@@ -1,8 +1,7 @@
 @import "~styles/variables";
 
 .form {
-  margin-top: .5em;
-  width: 65%;
+  width: 100%;
 }
 
 .form-input {
@@ -42,8 +41,9 @@
 
   & .iconfont {
     position: absolute;
-    left: .7em;
+    left: .8em;
     top: .6em;
+    font-size: 1em;
     color: var(--text-muted-color);
   }
 
