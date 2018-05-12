@@ -1,6 +1,6 @@
-@import "variables.css";
-@import "fonts/iconfont.css";
-@import "shared/form.css";
+@import "./variables";
+@import "./fonts/iconfont";
+@import "./components/form";
 
 html, body {
     height: 100%;

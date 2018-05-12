@@ -1,8 +1,8 @@
-import  "styles/main.css"
+import "~styles/main"
 
 import Vue from 'vue'
-import App from 'components/account/app'
-import i18n from 'lib/i18n'
+import App from './app'
+import i18n from '~lib/i18n'
 
 Vue.prototype.i18n = i18n
 

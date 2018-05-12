@@ -15,8 +15,8 @@
 </template>
 
 <script>
-    import SigninForm from './signinForm'
-    import SignupForm from './signupForm'
+    import SigninForm from './components/signinForm'
+    import SignupForm from './components/signupForm'
 
     export default {
         name: 'account',
@@ -42,7 +42,7 @@
 </script>
 
 <style scoped>
-    @import "../../styles/variables.css";
+    @import "~styles/variables";
 
     .container {
         height: 100%;

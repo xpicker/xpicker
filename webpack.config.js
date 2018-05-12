@@ -1,14 +1,14 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const htmlWebpackPlugin = require('html-webpack-plugin')
+const copyWebpackPlugin = require('copy-webpack-plugin')
+const cleanWebpackPlugin = require('clean-webpack-plugin')
+const extractTextPlugin = require('extract-text-webpack-plugin')
 const path = require('path')
 
 module.exports = {
     entry: {
-        popup: './app/scripts/popup.js',
-        background: './app/scripts/background.js',
-        account: './app/scripts/account.js'
+        popup: './app/popup/main.js',
+        background: './app/background/main.js',
+        login: './app/login/main.js'
     },
     output: {
         path: path.resolve(__dirname, './public'),
@@ -22,7 +22,7 @@ module.exports = {
                 loader: 'babel-loader'
             }, {
                 test: /\.css$/,
-                loader: ExtractTextPlugin.extract({
+                loader: extractTextPlugin.extract({
                     fallback: 'style-loader',
                     use: [
                         {
@@ -54,18 +54,18 @@ module.exports = {
         ]
     },
     plugins: [
-        new CleanWebpackPlugin('public'),
-        new HtmlWebpackPlugin({
+        new cleanWebpackPlugin('public'),
+        new htmlWebpackPlugin({
             chunks: ['popup'], 
             filename: 'views/popup.html',
             template: path.resolve(__dirname, 'app/views/popup.html')
         }),
-        new HtmlWebpackPlugin({
-            chunks: ['account'],
-            filename: 'views/account.html',
-            template: path.resolve(__dirname, 'app/views/account.html')
+        new htmlWebpackPlugin({
+            chunks: ['login'],
+            filename: 'views/login.html',
+            template: path.resolve(__dirname, 'app/views/login.html')
         }),
-        new CopyWebpackPlugin([
+        new copyWebpackPlugin([
             {
                 from: path.resolve(__dirname, 'app/manifest.json')
             }, {
@@ -80,16 +80,17 @@ module.exports = {
                 to: '_locales'
             }
         ]),
-        new ExtractTextPlugin({
+        new extractTextPlugin({
             filename: 'styles/[name].css'
         })
     ],
     resolve: {
-        extensions: ['.js', '.vue'],
+        extensions: ['.js', '.vue', '.css'],
         alias: {
-            styles: path.resolve(__dirname, 'app/styles'),
-            lib: path.resolve(__dirname, 'app/lib'),
-            components: path.resolve(__dirname, 'app/components')
+            '~lib': path.resolve(__dirname, 'app/lib'),
+            '~styles': path.resolve(__dirname, 'app/styles'),
+            '~login': path.resolve(__dirname, 'app/login'),
+            '~popup': path.resolve(__dirname, 'app/popup')
         }
     }
 }
